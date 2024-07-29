@@ -24,6 +24,9 @@ const CharacterList: React.FC = () => {
   }, [location.state]);
 
   const handleDelete = (id: string) => {
+    if (!window.confirm('Are you sure you want to delete this character?')) {
+      return;
+    }
     const updatedCharacters = characters.filter((character) => character.id !== id);
     setCharacters(updatedCharacters);
     localStorage.setItem('characters', JSON.stringify(updatedCharacters));
@@ -36,26 +39,28 @@ const CharacterList: React.FC = () => {
       <ListGroup>
         {characters.map((character) => (
           <ListGroup.Item key={character.id}>
-            <div className="d-flex justify-content-between align-items-center">
-              <div>
+            <div className="d-flex justify-content-between align-items-center row">
+              <div className="col-sm-8">
+                <div className='m-2'>
                 {character.name} - Level {character.level}
+                </div>
               </div>
-              <div>
+              <div className="col-sm-4">
                 <Button
                   variant="info"
-                  className="mr-2"
+                  className="m-2"
                   onClick={() => navigate(`/view/${character.id}`)}
                 >
                   View
                 </Button>
                 <Button
                   variant="warning"
-                  className="mr-2"
+                  className="m-2"
                   onClick={() => navigate(`/edit/${character.id}`)}
                 >
                   Edit
                 </Button>
-                <Button variant="danger" onClick={() => handleDelete(character.id)}>
+                <Button variant="danger" onClick={() => handleDelete(character.id)} className='m-2'>
                   Delete
                 </Button>
               </div>
