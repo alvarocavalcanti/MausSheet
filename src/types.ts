@@ -1,8 +1,11 @@
 export interface CharacterSheet {
   id: string;
   name: string;
-  class: string;
-  level: number;
+  background: string;
+  birthsign: string;
+  disposition: string;
+  coat: string;
+  physicalDetail: string;
   abilities: {
     strength: {
       max: number;
@@ -17,5 +20,10 @@ export interface CharacterSheet {
       current: number;
     };
   };
+  hp: {
+    max: number;
+    current: number;
+  };
   items: string[];
+  pips: number;
 }

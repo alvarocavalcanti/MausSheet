@@ -42,7 +42,7 @@ const CharacterList: React.FC = () => {
             <div className="d-flex justify-content-between align-items-center row">
               <div className="col-sm-8">
                 <div className='m-2'>
-                {character.name} - Level {character.level}
+                {character.name} ({character.background})
                 </div>
               </div>
               <div className="col-sm-4">

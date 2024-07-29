@@ -8,15 +8,21 @@ const CharacterForm: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [name, setName] = useState('');
-  const [charClass, setCharClass] = useState('');
-  const [level, setLevel] = useState(1);
+  const [background, setBackground] = useState('');
+  const [birthsign, setBirthsign] = useState('');
+  const [disposition, setDisposition] = useState('');
+  const [coat, setCoat] = useState('');
+  const [physicalDetail, setPhysicalDetail] = useState('');
   const [strengthMax, setStrengthMax] = useState(0);
   const [dexterityMax, setDexterityMax] = useState(0);
   const [willpowerMax, setWillpowerMax] = useState(0);
   const [strengthCurrent, setStrengthCurrent] = useState(0);
   const [dexterityCurrent, setDexterityCurrent] = useState(0);
   const [willpowerCurrent, setWillpowerCurrent] = useState(0);
+  const [hpMax, setHpMax] = useState(0);
+  const [hpCurrent, setHpCurrent] = useState(0);
   const [items, setItems] = useState<string[]>([]);
+  const [pips, setPips] = useState(0);
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -29,14 +35,20 @@ const CharacterForm: React.FC = () => {
         const characterToEdit = characters.find((character) => character.id === id);
         if (characterToEdit) {
           setName(characterToEdit.name);
-          setCharClass(characterToEdit.class);
-          setLevel(characterToEdit.level);
+          setBackground(characterToEdit.background);
+          setBirthsign(characterToEdit.birthsign);
+          setDisposition(characterToEdit.disposition);
+          setCoat(characterToEdit.coat);
+          setPhysicalDetail(characterToEdit.physicalDetail);
           setStrengthMax(characterToEdit.abilities.strength.max);
           setDexterityMax(characterToEdit.abilities.dexterity.max);
           setWillpowerMax(characterToEdit.abilities.willpower.max);
           setStrengthCurrent(characterToEdit.abilities.strength.current);
           setDexterityCurrent(characterToEdit.abilities.dexterity.current);
           setWillpowerCurrent(characterToEdit.abilities.willpower.current);
+          setHpMax(characterToEdit.hp.max);
+          setHpCurrent(characterToEdit.hp.current);
+          setPips(characterToEdit.pips);
           setItems(characterToEdit.items);
         }
       }
@@ -57,14 +69,22 @@ const CharacterForm: React.FC = () => {
     const newCharacter: CharacterSheet = {
       id: id || uuidv4(),
       name,
-      class: charClass,
-      level,
+      background: background,
+      birthsign: birthsign,
       abilities: {
         strength: { max: strengthMax, current: strengthMax },
         dexterity: { max: strengthMax, current: strengthMax },
         willpower: { max: strengthMax, current: strengthMax },
       },
       items,
+      disposition: '',
+      coat: '',
+      physicalDetail: '',
+      hp: {
+        max: 0,
+        current: 0
+      },
+      pips: 0
     };
 
     const storedCharacters = localStorage.getItem('characters');
@@ -91,32 +111,26 @@ const CharacterForm: React.FC = () => {
       <h2 className="mt-4">{id ? 'Edit' : 'Add New'} Character</h2>
       {showAlert && <Alert variant="success">Character {id ? 'updated' : 'created'} successfully!</Alert>}
       <Form noValidate validated={validated} onSubmit={handleSaveCharacter}>
-        <Row>
-          <Form.Group controlId="formName">
-            <Col>
-              <Form.Label>Name</Form.Label>
-            </Col>
-            <Col>
-              <Form.Control
-                required
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a name.
-              </Form.Control.Feedback>
-            </Col>
-          </Form.Group>
-        </Row>
+        <Form.Group controlId="formName">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              required
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a name.
+            </Form.Control.Feedback>
+        </Form.Group>
 
         <Form.Group controlId="formClass">
-          <Form.Label>Class</Form.Label>
+          <Form.Label>Background</Form.Label>
           <Form.Control
             required
             type="text"
-            value={charClass}
-            onChange={(e) => setCharClass(e.target.value)}
+            value={background}
+            onChange={(e) => setBackground(e.target.value)}
           />
           <Form.Control.Feedback type="invalid">
             Please provide a class.
@@ -124,12 +138,12 @@ const CharacterForm: React.FC = () => {
         </Form.Group>
 
         <Form.Group controlId="formLevel">
-          <Form.Label>Level</Form.Label>
+          <Form.Label>Birthsign</Form.Label>
           <Form.Control
             required
-            type="number"
-            value={level}
-            onChange={(e) => setLevel(parseInt(e.target.value))}
+            type="text"
+            value={birthsign}
+            onChange={(e) => setBirthsign(e.target.value)}
           />
           <Form.Control.Feedback type="invalid">
             Please provide a level.
