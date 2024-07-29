@@ -48,3 +48,10 @@ button {
   width: 100%;
   bottom: 0;
 }
+
+.dice-roller-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it is above other elements */
+}

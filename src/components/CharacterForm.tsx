@@ -3,6 +3,7 @@ import { CharacterSheet } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 import { Form, Button, Container, Alert, Row, Col } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+import DiceRoller from './DiceRoller';
 
 const CharacterForm: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -245,6 +246,7 @@ const CharacterForm: React.FC = () => {
           {id ? 'Save Changes' : 'Add Character'}
         </Button>
       </Form>
+      <DiceRoller />
     </Container>
   );
 };
