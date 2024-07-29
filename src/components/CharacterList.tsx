@@ -35,7 +35,7 @@ const CharacterList: React.FC = () => {
   return (
     <Container>
       <h1 className="mt-4">Mice</h1>
-      {showAlert && <Alert variant="success">Mouse saved successfully! Redirecting to Mice list...</Alert>}
+      {showAlert && <Alert variant="success">Mouse saved successfully!</Alert>}
       <ListGroup>
         {characters.map((character) => (
           <ListGroup.Item key={character.id}>

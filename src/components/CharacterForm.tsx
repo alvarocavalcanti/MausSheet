@@ -109,7 +109,7 @@ const CharacterForm: React.FC = () => {
   return (
     <Container>
       <h2 className="mt-4">{id ? 'Edit' : 'Add New'} Character</h2>
-      {showAlert && <Alert variant="success">Character {id ? 'updated' : 'created'} successfully!</Alert>}
+      {showAlert && <Alert variant="success">Character {id ? 'updated' : 'created'} successfully! Redirecting to Mice list...</Alert>}
       <Form noValidate validated={validated} onSubmit={handleSaveCharacter}>
         <Form.Group controlId="formName">
             <Form.Label>Name</Form.Label>
@@ -241,7 +241,7 @@ const CharacterForm: React.FC = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button variant="primary" type="submit" disabled={saving}>
+        <Button variant="primary" type="submit" disabled={saving} className='mt-3 mr-3'>
           {id ? 'Save Changes' : 'Add Character'}
         </Button>
       </Form>
