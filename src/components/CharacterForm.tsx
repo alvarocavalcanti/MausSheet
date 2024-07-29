@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { CharacterSheet } from '../types';
 import { v4 as uuidv4 } from 'uuid';
-import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { Form, Button, Container, Alert, Row, Col } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const CharacterForm: React.FC = () => {
@@ -10,9 +10,12 @@ const CharacterForm: React.FC = () => {
   const [name, setName] = useState('');
   const [charClass, setCharClass] = useState('');
   const [level, setLevel] = useState(1);
-  const [strength, setStrength] = useState(0);
-  const [dexterity, setDexterity] = useState(0);
-  const [willpower, setWillpower] = useState(0);
+  const [strengthMax, setStrengthMax] = useState(0);
+  const [dexterityMax, setDexterityMax] = useState(0);
+  const [willpowerMax, setWillpowerMax] = useState(0);
+  const [strengthCurrent, setStrengthCurrent] = useState(0);
+  const [dexterityCurrent, setDexterityCurrent] = useState(0);
+  const [willpowerCurrent, setWillpowerCurrent] = useState(0);
   const [items, setItems] = useState<string[]>([]);
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
@@ -28,9 +31,12 @@ const CharacterForm: React.FC = () => {
           setName(characterToEdit.name);
           setCharClass(characterToEdit.class);
           setLevel(characterToEdit.level);
-          setStrength(characterToEdit.abilities.strength);
-          setDexterity(characterToEdit.abilities.dexterity);
-          setWillpower(characterToEdit.abilities.willpower);
+          setStrengthMax(characterToEdit.abilities.strength.max);
+          setDexterityMax(characterToEdit.abilities.dexterity.max);
+          setWillpowerMax(characterToEdit.abilities.willpower.max);
+          setStrengthCurrent(characterToEdit.abilities.strength.current);
+          setDexterityCurrent(characterToEdit.abilities.dexterity.current);
+          setWillpowerCurrent(characterToEdit.abilities.willpower.current);
           setItems(characterToEdit.items);
         }
       }
@@ -54,9 +60,9 @@ const CharacterForm: React.FC = () => {
       class: charClass,
       level,
       abilities: {
-        strength,
-        dexterity,
-        willpower,
+        strength: { max: strengthMax, current: strengthMax },
+        dexterity: { max: strengthMax, current: strengthMax },
+        willpower: { max: strengthMax, current: strengthMax },
       },
       items,
     };
@@ -85,18 +91,24 @@ const CharacterForm: React.FC = () => {
       <h2 className="mt-4">{id ? 'Edit' : 'Add New'} Character</h2>
       {showAlert && <Alert variant="success">Character {id ? 'updated' : 'created'} successfully!</Alert>}
       <Form noValidate validated={validated} onSubmit={handleSaveCharacter}>
-        <Form.Group controlId="formName">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a name.
-          </Form.Control.Feedback>
-        </Form.Group>
+        <Row>
+          <Form.Group controlId="formName">
+            <Col>
+              <Form.Label>Name</Form.Label>
+            </Col>
+            <Col>
+              <Form.Control
+                required
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a name.
+              </Form.Control.Feedback>
+            </Col>
+          </Form.Group>
+        </Row>
 
         <Form.Group controlId="formClass">
           <Form.Label>Class</Form.Label>
@@ -124,39 +136,78 @@ const CharacterForm: React.FC = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formStrength">
-          <Form.Label>Strength</Form.Label>
+        <Form.Group controlId="formStrengthMax">
+          <Form.Label>Strength Max</Form.Label>
           <Form.Control
             required
             type="number"
-            value={strength}
-            onChange={(e) => setStrength(parseInt(e.target.value))}
+            value={strengthMax}
+            onChange={(e) => setStrengthMax(parseInt(e.target.value))}
           />
           <Form.Control.Feedback type="invalid">
             Please provide a strength value.
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formDexterity">
-          <Form.Label>Dexterity</Form.Label>
+        <Form.Group controlId="formStrengthCurrent">
+          <Form.Label>Strength Current</Form.Label>
           <Form.Control
             required
             type="number"
-            value={dexterity}
-            onChange={(e) => setDexterity(parseInt(e.target.value))}
+            value={strengthCurrent}
+            onChange={(e) => setStrengthCurrent(parseInt(e.target.value))}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a strength value.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formDexterityMax">
+          <Form.Label>Dexterity Max</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            value={dexterityMax}
+            onChange={(e) => setDexterityMax(parseInt(e.target.value))}
           />
           <Form.Control.Feedback type="invalid">
             Please provide a dexterity value.
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formWillpower">
-          <Form.Label>Willpower</Form.Label>
+        <Form.Group controlId="formDexterityCurrent">
+          <Form.Label>Dexterity Current</Form.Label>
           <Form.Control
             required
             type="number"
-            value={willpower}
-            onChange={(e) => setWillpower(parseInt(e.target.value))}
+            value={dexterityCurrent}
+            onChange={(e) => setDexterityCurrent(parseInt(e.target.value))}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a dexterity value.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formWillpowerMax">
+          <Form.Label>Willpower Max</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            value={willpowerMax}
+            onChange={(e) => setWillpowerMax(parseInt(e.target.value))}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a willpower value.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formWillpowerCurrent">
+          <Form.Label>Willpower Current</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            value={willpowerCurrent}
+            onChange={(e) => setWillpowerCurrent(parseInt(e.target.value))}
           />
           <Form.Control.Feedback type="invalid">
             Please provide a willpower value.

@@ -17,12 +17,12 @@ const CharacterView: React.FC = () => {
   }, [id]);
 
   if (!character) {
-    return <p>Character not found</p>;
+    return <p>Mouse not found</p>;
   }
 
   return (
     <Container>
-      <h1 className="mt-4">View Character</h1>
+      <h1 className="mt-4">View Mouse</h1>
       <Card>
         <Card.Body>
           <Card.Title>{character.name}</Card.Title>
@@ -30,11 +30,11 @@ const CharacterView: React.FC = () => {
           <Card.Text>
             Level: {character.level}
             <br />
-            Strength: {character.abilities.strength}
+            Strength: {character.abilities.strength.current} / {character.abilities.strength.max}
             <br />
-            Dexterity: {character.abilities.dexterity}
+            Dexterity: {character.abilities.dexterity.current} / {character.abilities.dexterity.max}
             <br />
-            Willpower: {character.abilities.willpower}
+            Willpower: {character.abilities.willpower.current} / {character.abilities.willpower.max}
             <br />
             Items: {character.items.join(', ')}
           </Card.Text>

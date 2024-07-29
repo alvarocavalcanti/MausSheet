@@ -4,9 +4,18 @@ export interface CharacterSheet {
   class: string;
   level: number;
   abilities: {
-    strength: number;
-    dexterity: number;
-    willpower: number;
+    strength: {
+      max: number;
+      current: number;
+    };
+    dexterity: {
+      max: number;
+      current: number;
+    };
+    willpower: {
+      max: number;
+      current: number;
+    };
   };
   items: string[];
 }

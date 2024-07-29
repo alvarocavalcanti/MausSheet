@@ -6,16 +6,16 @@ const AppNavbar: React.FC = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Navbar.Brand href="/" style={{ marginLeft: "10pt" }}>
-        Mausritter Sheets
+        MausSheets
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <LinkContainer to="/" style={{ marginLeft: "10pt" }}>
-            <Nav.Link>Character Sheets</Nav.Link>
+            <Nav.Link>Mice</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/new" style={{ marginLeft: "10pt" }}>
-            <Nav.Link>Add New Character</Nav.Link>
+            <Nav.Link>Add New Mouse</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/help" style={{ marginLeft: "10pt" }}>
             <Nav.Link>Help</Nav.Link>
