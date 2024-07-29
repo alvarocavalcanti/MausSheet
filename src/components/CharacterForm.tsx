@@ -16,6 +16,7 @@ const CharacterForm: React.FC = () => {
   const [items, setItems] = useState<string[]>([]);
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     if (id) {
@@ -37,11 +38,13 @@ const CharacterForm: React.FC = () => {
   }, [id]);
 
   const handleSaveCharacter = (event: React.FormEvent<HTMLFormElement>) => {
+    setSaving(true);
     event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.stopPropagation();
       setValidated(true);
+      setSaving(false);
       return;
     }
 
@@ -173,7 +176,7 @@ const CharacterForm: React.FC = () => {
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" disabled={saving}>
           {id ? 'Save Changes' : 'Add Character'}
         </Button>
       </Form>
