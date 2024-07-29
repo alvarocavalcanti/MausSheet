@@ -35,7 +35,7 @@ const CharacterList: React.FC = () => {
   return (
     <Container>
       <h1 className="mt-4">Mice</h1>
-      {showAlert && <Alert variant="success">Mouse saved successfully!</Alert>}
+      {showAlert && <Alert variant="success">Mouse saved successfully! Redirecting to Mice list...</Alert>}
       <ListGroup>
         {characters.map((character) => (
           <ListGroup.Item key={character.id}>
@@ -49,16 +49,9 @@ const CharacterList: React.FC = () => {
                 <Button
                   variant="info"
                   className="m-2"
-                  onClick={() => navigate(`/view/${character.id}`)}
-                >
-                  View
-                </Button>
-                <Button
-                  variant="warning"
-                  className="m-2"
                   onClick={() => navigate(`/edit/${character.id}`)}
                 >
-                  Edit
+                  View/Edit
                 </Button>
                 <Button variant="danger" onClick={() => handleDelete(character.id)} className='m-2'>
                   Delete
