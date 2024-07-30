@@ -112,7 +112,7 @@ const CharacterForm: React.FC = () => {
   };
 
   return (
-    <Container fluid className="m-2">
+    <Container fluid className="m-3">
       <h2 className="mt-4">{id ? "Edit" : "Add New"} Character</h2>
       {showAlert && (
         <Alert variant="success">
