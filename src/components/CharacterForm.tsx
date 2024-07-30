@@ -124,13 +124,12 @@ const CharacterForm: React.FC = () => {
         <Form.Group as={Row} controlId="formNameAndBackground">
           <Form.Label
             column
-            sm={2}
             className="rounded-start"
             style={{ backgroundColor: "#ccc" }}
           >
             Name
           </Form.Label>
-          <Col sm={4} style={{ paddingLeft: "0px" }}>
+          <Col style={{ paddingLeft: "0px" }}>
             <Form.Control
               required
               type="text"
@@ -145,13 +144,12 @@ const CharacterForm: React.FC = () => {
           </Col>
           <Form.Label
             column
-            sm={2}
             className="rounded-start"
             style={{ backgroundColor: "#ccc" }}
           >
             Background
           </Form.Label>
-          <Col sm={4} style={{ paddingLeft: "0px" }}>
+          <Col style={{ paddingLeft: "0px" }}>
             <Form.Control
               required
               type="text"
@@ -230,9 +228,14 @@ const CharacterForm: React.FC = () => {
           <span>&nbsp;MS&nbsp;</span>
         </div>
         <Row>
-          <Col sm={4} className="mt-3">
+          <Col></Col>
+          <Col className="text-center">Max</Col>
+          <Col className="text-center">Current</Col>
+        </Row>
+        <Row>
+          <Col className="text-end">STR</Col>
+          <Col>
             <Form.Group controlId="formStrengthMax">
-              <Form.Label>STR Max</Form.Label>
               <Form.Control
                 required
                 type="number"
@@ -244,40 +247,8 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4} className="mt-3">
-            <Form.Group controlId="formDexterityMax">
-              <Form.Label>DEX Max</Form.Label>
-              <Form.Control
-                required
-                type="number"
-                value={dexterityMax}
-                onChange={(e) => setDexterityMax(parseInt(e.target.value))}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a dexterity value.
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Col>
-          <Col sm={4} className="mt-3">
-            <Form.Group controlId="formWillpowerMax">
-              <Form.Label>WIL Max</Form.Label>
-              <Form.Control
-                required
-                type="number"
-                value={willpowerMax}
-                onChange={(e) => setWillpowerMax(parseInt(e.target.value))}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a willpower value.
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col sm={4}>
+          <Col>
             <Form.Group controlId="formStrengthCurrent">
-              <Form.Label>STR Current</Form.Label>
               <Form.Control
                 required
                 type="number"
@@ -289,9 +260,26 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+        </Row>
+        <Row>
+          <Col className="mt-3 text-end">
+            DEX
+          </Col>
+          <Col className="mt-3">
+            <Form.Group controlId="formDexterityMax">
+              <Form.Control
+                required
+                type="number"
+                value={dexterityMax}
+                onChange={(e) => setDexterityMax(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a dexterity value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col className="mt-3">
             <Form.Group controlId="formDexterityCurrent">
-              <Form.Label>DEX Current</Form.Label>
               <Form.Control
                 required
                 type="number"
@@ -303,9 +291,26 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+        </Row>
+        <Row>
+          <Col className="mt-3 text-end">
+            WIL
+          </Col>
+          <Col className="mt-3">
+            <Form.Group controlId="formWillpowerMax">
+              <Form.Control
+                required
+                type="number"
+                value={willpowerMax}
+                onChange={(e) => setWillpowerMax(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a willpower value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col className="mt-3">
             <Form.Group controlId="formWillpowerCurrent">
-              <Form.Label>WIL Current</Form.Label>
               <Form.Control
                 required
                 type="number"
@@ -321,7 +326,6 @@ const CharacterForm: React.FC = () => {
         <div className="hr-with-char">
           <span>&nbsp;MS&nbsp;</span>
         </div>
-
         <Row>
           <Col sm={4} className="mt-3">
             <Form.Group controlId="formHPMax">
