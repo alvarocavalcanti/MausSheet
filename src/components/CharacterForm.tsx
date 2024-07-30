@@ -121,37 +121,53 @@ const CharacterForm: React.FC = () => {
         </Alert>
       )}
       <Form noValidate validated={validated} onSubmit={handleSaveCharacter}>
-        <Row>
-          <Col sm={8}>
-            <Form.Group controlId="formName">
-              <Form.Label>Name</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a name.
-              </Form.Control.Feedback>
-            </Form.Group>
+        <Form.Group as={Row} controlId="formNameAndBackground">
+          <Form.Label
+            column
+            sm={2}
+            className="rounded-start"
+            style={{ backgroundColor: "#ccc" }}
+          >
+            Name
+          </Form.Label>
+          <Col sm={4} style={{ paddingLeft: "0px" }}>
+            <Form.Control
+              required
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              style={{ paddingLeft: "5px" }}
+              className="rounded-end rounded-start-0"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a name.
+            </Form.Control.Feedback>
           </Col>
-          <Col sm={4}>
-            <Form.Group controlId="formClass">
-              <Form.Label>Background</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                value={background}
-                onChange={(e) => setBackground(e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a background.
-              </Form.Control.Feedback>
-            </Form.Group>
+          <Form.Label
+            column
+            sm={2}
+            className="rounded-start"
+            style={{ backgroundColor: "#ccc" }}
+          >
+            Background
+          </Form.Label>
+          <Col sm={4} style={{ paddingLeft: "0px" }}>
+            <Form.Control
+              required
+              type="text"
+              value={background}
+              onChange={(e) => setBackground(e.target.value)}
+              style={{ paddingLeft: "5px" }}
+              className="rounded-end rounded-start-0"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a background.
+            </Form.Control.Feedback>
           </Col>
-        </Row>
-        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
+        </Form.Group>
+        <div className="hr-with-char">
+          <span>&nbsp;MS&nbsp;</span>
+        </div>
         <Row>
           <Col sm={3}>
             <Form.Group controlId="formBirthsign">
@@ -210,7 +226,9 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
-        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
+        <div className="hr-with-char">
+          <span>&nbsp;MS&nbsp;</span>
+        </div>
         <Row>
           <Col sm={4} className="mt-3">
             <Form.Group controlId="formStrengthMax">
@@ -300,7 +318,9 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
-        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
+        <div className="hr-with-char">
+          <span>&nbsp;MS&nbsp;</span>
+        </div>
 
         <Row>
           <Col sm={4} className="mt-3">
@@ -346,7 +366,9 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
-        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
+        <div className="hr-with-char">
+          <span>&nbsp;MS&nbsp;</span>
+        </div>
 
         <Row>
           <Col sm={12} className="mt-3">
@@ -375,7 +397,7 @@ const CharacterForm: React.FC = () => {
         </Button>
       </Form>
       <DiceRoller />
-      <Container style={{height: '100px'}}/>
+      <Container style={{ height: "100px" }} />
     </Container>
   );
 };
