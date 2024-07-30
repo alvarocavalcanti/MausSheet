@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { CharacterSheet } from '../types';
-import { v4 as uuidv4 } from 'uuid';
-import { Form, Button, Container, Alert, Row, Col } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
-import DiceRoller from './DiceRoller';
+import React, { useEffect, useState } from "react";
+import { CharacterSheet } from "../types";
+import { v4 as uuidv4 } from "uuid";
+import { Form, Button, Container, Alert, Row, Col } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
+import DiceRoller from "./DiceRoller";
 
 const CharacterForm: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [name, setName] = useState('');
-  const [background, setBackground] = useState('');
-  const [birthsign, setBirthsign] = useState<string | undefined>('');
-  const [disposition, setDisposition] = useState<string | undefined>('');
-  const [coat, setCoat] = useState<string | undefined>('');
-  const [physicalDetail, setPhysicalDetail] = useState<string | undefined>('');
+  const [name, setName] = useState("");
+  const [background, setBackground] = useState("");
+  const [birthsign, setBirthsign] = useState<string | undefined>("");
+  const [disposition, setDisposition] = useState<string | undefined>("");
+  const [coat, setCoat] = useState<string | undefined>("");
+  const [physicalDetail, setPhysicalDetail] = useState<string | undefined>("");
   const [strengthMax, setStrengthMax] = useState(0);
   const [dexterityMax, setDexterityMax] = useState(0);
   const [willpowerMax, setWillpowerMax] = useState(0);
@@ -30,10 +30,12 @@ const CharacterForm: React.FC = () => {
 
   useEffect(() => {
     if (id) {
-      const storedCharacters = localStorage.getItem('characters');
+      const storedCharacters = localStorage.getItem("characters");
       if (storedCharacters) {
         const characters: CharacterSheet[] = JSON.parse(storedCharacters);
-        const characterToEdit = characters.find((character) => character.id === id);
+        const characterToEdit = characters.find(
+          (character) => character.id === id
+        );
         if (characterToEdit) {
           setName(characterToEdit.name);
           setBackground(characterToEdit.background);
@@ -78,21 +80,23 @@ const CharacterForm: React.FC = () => {
         willpower: { max: strengthMax, current: strengthMax },
       },
       items,
-      disposition: '',
-      coat: '',
-      physicalDetail: '',
+      disposition: "",
+      coat: "",
+      physicalDetail: "",
       hp: {
         max: 0,
-        current: 0
+        current: 0,
       },
-      pips: 0
+      pips: 0,
     };
 
-    const storedCharacters = localStorage.getItem('characters');
+    const storedCharacters = localStorage.getItem("characters");
     const characters = storedCharacters ? JSON.parse(storedCharacters) : [];
 
     if (id) {
-      const index = characters.findIndex((character: CharacterSheet) => character.id === id);
+      const index = characters.findIndex(
+        (character: CharacterSheet) => character.id === id
+      );
       if (index !== -1) {
         characters[index] = newCharacter;
       }
@@ -100,228 +104,270 @@ const CharacterForm: React.FC = () => {
       characters.push(newCharacter);
     }
 
-    localStorage.setItem('characters', JSON.stringify(characters));
+    localStorage.setItem("characters", JSON.stringify(characters));
     setShowAlert(true);
     setTimeout(() => {
-      navigate('/');
+      navigate("/");
     }, 2000);
   };
 
   return (
-    <Container>
-      <h2 className="mt-4">{id ? 'Edit' : 'Add New'} Character</h2>
-      {showAlert && <Alert variant="success">Character {id ? 'updated' : 'created'} successfully! Redirecting to Mice list...</Alert>}
+    <Container fluid>
+      <h2 className="mt-4">{id ? "Edit" : "Add New"} Character</h2>
+      {showAlert && (
+        <Alert variant="success">
+          Character {id ? "updated" : "created"} successfully! Redirecting to
+          Mice list...
+        </Alert>
+      )}
       <Form noValidate validated={validated} onSubmit={handleSaveCharacter}>
-        <Form.Group controlId="formName">
-            <Form.Label>Name</Form.Label>
-            <Form.Control
-              required
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <Form.Control.Feedback type="invalid">
-              Please provide a name.
-            </Form.Control.Feedback>
-        </Form.Group>
+        <Row>
+          <Col sm={4}>
+            <Form.Group controlId="formName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a name.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formClass">
+              <Form.Label>Background</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={background}
+                onChange={(e) => setBackground(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a background.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formBirthsign">
+              <Form.Label>Birthsign</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={birthsign}
+                onChange={(e) => setBirthsign(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a birthsign.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={4}>
+            <Form.Group controlId="formDisposition">
+              <Form.Label>Disposition</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={disposition}
+                onChange={(e) => setDisposition(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a disposition.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formCoat">
+              <Form.Label>Coat</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={coat}
+                onChange={(e) => setCoat(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a coat.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formPhysicalDetail">
+              <Form.Label>Physical Detail</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={physicalDetail}
+                onChange={(e) => setPhysicalDetail(e.target.value)}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a physical detail.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col sm={4}>
+            <Form.Group controlId="formStrengthMax">
+              <Form.Label>STR Max</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={strengthMax}
+                onChange={(e) => setStrengthMax(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a strength value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formDexterityMax">
+              <Form.Label>DEX Max</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={dexterityMax}
+                onChange={(e) => setDexterityMax(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a dexterity value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formWillpowerMax">
+              <Form.Label>WIL Max</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={willpowerMax}
+                onChange={(e) => setWillpowerMax(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a willpower value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+        </Row>
 
-        <Form.Group controlId="formClass">
-          <Form.Label>Background</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={background}
-            onChange={(e) => setBackground(e.target.value)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a background.
-          </Form.Control.Feedback>
-        </Form.Group>
+        <Row>
+          <Col sm={4}>
+            <Form.Group controlId="formStrengthCurrent">
+              <Form.Label>STR Current</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={strengthCurrent}
+                onChange={(e) => setStrengthCurrent(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a strength value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formDexterityCurrent">
+              <Form.Label>DEX Current</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={dexterityCurrent}
+                onChange={(e) => setDexterityCurrent(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a dexterity value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formWillpowerCurrent">
+              <Form.Label>WIL Current</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={willpowerCurrent}
+                onChange={(e) => setWillpowerCurrent(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a willpower value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+        </Row>
 
-        <Form.Group controlId="formBirthsign">
-          <Form.Label>Birthsign</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={birthsign}
-            onChange={(e) => setBirthsign(e.target.value)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a birthsign.
-          </Form.Control.Feedback>
-        </Form.Group>
+        <Row>
+          <Col sm={4}>
+            <Form.Group controlId="formHPMax">
+              <Form.Label>HP Max</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={hpMax}
+                onChange={(e) => setHpMax(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a HP Max value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formHPCurrent">
+              <Form.Label>HP Current</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={hpCurrent}
+                onChange={(e) => setHpCurrent(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a HP Current value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col sm={4}>
+            <Form.Group controlId="formPips">
+              <Form.Label>Pips</Form.Label>
+              <Form.Control
+                required
+                type="number"
+                value={pips}
+                onChange={(e) => setPips(parseInt(e.target.value))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a pips value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+        </Row>
 
-        <Form.Group controlId="formDisposition">
-          <Form.Label>Disposition</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={disposition}
-            onChange={(e) => setDisposition(e.target.value)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a disposition.
-          </Form.Control.Feedback>
-        </Form.Group>
+        <Row>
+          <Col className="sm-12">
+            <Form.Group controlId="formItems">
+              <Form.Label>Items</Form.Label>
+              <Form.Control
+                required
+                type="text"
+                value={items.join(", ")}
+                onChange={(e) => setItems(e.target.value.split(", "))}
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide at least one item.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+        </Row>
 
-        <Form.Group controlId="formCoat">
-          <Form.Label>Coat</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={coat}
-            onChange={(e) => setCoat(e.target.value)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a coat.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formPhysicalDetail">
-          <Form.Label>Physical Detail</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={physicalDetail}
-            onChange={(e) => setPhysicalDetail(e.target.value)}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a physical detail.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formStrengthMax">
-          <Form.Label>Strength Max</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={strengthMax}
-            onChange={(e) => setStrengthMax(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a strength value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formStrengthCurrent">
-          <Form.Label>Strength Current</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={strengthCurrent}
-            onChange={(e) => setStrengthCurrent(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a strength value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formDexterityMax">
-          <Form.Label>Dexterity Max</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={dexterityMax}
-            onChange={(e) => setDexterityMax(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a dexterity value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formDexterityCurrent">
-          <Form.Label>Dexterity Current</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={dexterityCurrent}
-            onChange={(e) => setDexterityCurrent(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a dexterity value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formWillpowerMax">
-          <Form.Label>Willpower Max</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={willpowerMax}
-            onChange={(e) => setWillpowerMax(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a willpower value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formWillpowerCurrent">
-          <Form.Label>Willpower Current</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={willpowerCurrent}
-            onChange={(e) => setWillpowerCurrent(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a willpower value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formHPMax">
-          <Form.Label>HP Max</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={hpMax}
-            onChange={(e) => setHpMax(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a HP Max value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formHPCurrent">
-          <Form.Label>HP Current</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={hpCurrent}
-            onChange={(e) => setHpCurrent(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a HP Current value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formPips">
-          <Form.Label>Pips</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            value={pips}
-            onChange={(e) => setPips(parseInt(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a pips value.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formItems">
-          <Form.Label>Items</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            value={items.join(', ')}
-            onChange={(e) => setItems(e.target.value.split(', '))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide at least one item.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Button variant="primary" type="submit" disabled={saving} className='mt-3 mr-3'>
-          {id ? 'Save Changes' : 'Add Character'}
+        <Button
+          variant="primary"
+          type="submit"
+          disabled={saving}
+          className="mt-3 mr-3"
+        >
+          {id ? "Save Changes" : "Add Character"}
         </Button>
       </Form>
       <DiceRoller />
