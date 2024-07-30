@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import CharacterList from './components/CharacterList';
 import CharacterForm from './components/CharacterForm';
 import HelpPage from './components/HelpPage';
+import { Analytics } from "@vercel/analytics/react"
 
 const App: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const App: React.FC = () => {
         <Route path="/edit/:id" element={<CharacterForm />} />
         <Route path="/help" element={<HelpPage />} />
       </Routes>
+      <Analytics />
     </Router>
   );
 };
