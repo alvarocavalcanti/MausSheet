@@ -1,9 +1,14 @@
 /* index.css */
 
+@font-face {
+  font-family: 'Gothico Minimo';
+  src: url('gothicominimo.ttf');
+}
+
 /* General body styling to apply Bootstrap's theme correctly */
 body {
   background-color: #f8f9fa; /* Light background color */
-  font-family: Georgia, serif !important;
+  font-family: "Gothico Minimo", serif !important;
 }
 
 /* Styling for the main content */
