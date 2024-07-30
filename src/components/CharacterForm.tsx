@@ -375,6 +375,7 @@ const CharacterForm: React.FC = () => {
         </Button>
       </Form>
       <DiceRoller />
+      <Container style={{height: '100px'}}/>
     </Container>
   );
 };
