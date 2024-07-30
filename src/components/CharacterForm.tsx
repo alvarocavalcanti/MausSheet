@@ -10,10 +10,10 @@ const CharacterForm: React.FC = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [background, setBackground] = useState('');
-  const [birthsign, setBirthsign] = useState('');
-  const [disposition, setDisposition] = useState('');
-  const [coat, setCoat] = useState('');
-  const [physicalDetail, setPhysicalDetail] = useState('');
+  const [birthsign, setBirthsign] = useState<string | undefined>('');
+  const [disposition, setDisposition] = useState<string | undefined>('');
+  const [coat, setCoat] = useState<string | undefined>('');
+  const [physicalDetail, setPhysicalDetail] = useState<string | undefined>('');
   const [strengthMax, setStrengthMax] = useState(0);
   const [dexterityMax, setDexterityMax] = useState(0);
   const [willpowerMax, setWillpowerMax] = useState(0);
@@ -134,11 +134,11 @@ const CharacterForm: React.FC = () => {
             onChange={(e) => setBackground(e.target.value)}
           />
           <Form.Control.Feedback type="invalid">
-            Please provide a class.
+            Please provide a background.
           </Form.Control.Feedback>
         </Form.Group>
 
-        <Form.Group controlId="formLevel">
+        <Form.Group controlId="formBirthsign">
           <Form.Label>Birthsign</Form.Label>
           <Form.Control
             required
@@ -147,7 +147,46 @@ const CharacterForm: React.FC = () => {
             onChange={(e) => setBirthsign(e.target.value)}
           />
           <Form.Control.Feedback type="invalid">
-            Please provide a level.
+            Please provide a birthsign.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formDisposition">
+          <Form.Label>Disposition</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            value={disposition}
+            onChange={(e) => setDisposition(e.target.value)}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a disposition.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formCoat">
+          <Form.Label>Coat</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            value={coat}
+            onChange={(e) => setCoat(e.target.value)}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a coat.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formPhysicalDetail">
+          <Form.Label>Physical Detail</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            value={physicalDetail}
+            onChange={(e) => setPhysicalDetail(e.target.value)}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a physical detail.
           </Form.Control.Feedback>
         </Form.Group>
 
@@ -226,6 +265,45 @@ const CharacterForm: React.FC = () => {
           />
           <Form.Control.Feedback type="invalid">
             Please provide a willpower value.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formHPMax">
+          <Form.Label>HP Max</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            value={hpMax}
+            onChange={(e) => setHpMax(parseInt(e.target.value))}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a HP Max value.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formHPCurrent">
+          <Form.Label>HP Current</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            value={hpCurrent}
+            onChange={(e) => setHpCurrent(parseInt(e.target.value))}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a HP Current value.
+          </Form.Control.Feedback>
+        </Form.Group>
+
+        <Form.Group controlId="formPips">
+          <Form.Label>Pips</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            value={pips}
+            onChange={(e) => setPips(parseInt(e.target.value))}
+          />
+          <Form.Control.Feedback type="invalid">
+            Please provide a pips value.
           </Form.Control.Feedback>
         </Form.Group>
 

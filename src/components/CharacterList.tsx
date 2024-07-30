@@ -45,7 +45,7 @@ const CharacterList: React.FC = () => {
                 {character.name} ({character.background})
                 </div>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-4" style={{textAlign: 'right'}}> {/* Modified code */}
                 <Button
                   variant="info"
                   className="m-2"

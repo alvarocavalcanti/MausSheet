@@ -2,10 +2,10 @@ export interface CharacterSheet {
   id: string;
   name: string;
   background: string;
-  birthsign: string;
-  disposition: string;
-  coat: string;
-  physicalDetail: string;
+  birthsign?: string;
+  disposition?: string;
+  coat?: string;
+  physicalDetail?: string;
   abilities: {
     strength: {
       max: number;

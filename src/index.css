@@ -2,9 +2,8 @@
 
 /* General body styling to apply Bootstrap's theme correctly */
 body {
-  padding-top: 56px; /* Space for the fixed navbar */
   background-color: #f8f9fa; /* Light background color */
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Georgia, serif !important;
 }
 
 /* Styling for the main content */
