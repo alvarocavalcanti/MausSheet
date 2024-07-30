@@ -60,6 +60,13 @@ button {
   z-index: 1000; /* Ensure it is above other elements */
 }
 
+.submit-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000; /* Ensure it is above other elements */
+}
+
 .hr-with-char {
   border: none;
   height: 1px;

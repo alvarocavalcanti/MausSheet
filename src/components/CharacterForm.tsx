@@ -369,7 +369,7 @@ const CharacterForm: React.FC = () => {
           variant="primary"
           type="submit"
           disabled={saving}
-          className="mt-3"
+          className="submit-button"
         >
           {id ? "Save Changes" : "Add Character"}
         </Button>
