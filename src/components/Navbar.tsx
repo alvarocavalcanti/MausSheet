@@ -12,7 +12,7 @@ const AppNavbar: React.FC = () => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <LinkContainer to="/" style={{ marginLeft: "10pt" }}>
-            <Nav.Link>Mice Lst</Nav.Link>
+            <Nav.Link>Mice List</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/new" style={{ marginLeft: "10pt" }}>
             <Nav.Link>New Mouse</Nav.Link>

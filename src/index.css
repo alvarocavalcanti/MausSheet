@@ -5,10 +5,28 @@
   src: url('gothicominimo.ttf');
 }
 
+:root {
+  --h1-font-size: 35px;
+  --h2-font-size: 20px;
+  --h3-font-size: 18px;
+}
+
 /* General body styling to apply Bootstrap's theme correctly */
 body {
   background-color: #f8f9fa; /* Light background color */
   font-family: "Gothico Minimo", serif !important;
+}
+
+h1 {
+  font-size: var(--h1-font-size) !important;
+}
+
+h2 {
+  font-size: var(--h2-font-size) !important;
+}
+
+h3 {
+  font-size: var(--h3-font-size) !important;
 }
 
 /* Styling for the main content */

@@ -41,9 +41,9 @@ const CharacterList: React.FC = () => {
           <ListGroup.Item key={character.id}>
             <div className="d-flex justify-content-between align-items-center row">
               <div className="col-sm-8">
-                <div className='m-2'>
+                <h2 className='m-2'>
                 {character.name} ({character.background})
-                </div>
+                </h2>
               </div>
               <div className="col-sm-4" style={{textAlign: 'right'}}> {/* Modified code */}
                 <Button
