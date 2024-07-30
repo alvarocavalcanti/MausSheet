@@ -122,7 +122,7 @@ const CharacterForm: React.FC = () => {
       )}
       <Form noValidate validated={validated} onSubmit={handleSaveCharacter}>
         <Row>
-          <Col sm={4}>
+          <Col sm={8}>
             <Form.Group controlId="formName">
               <Form.Label>Name</Form.Label>
               <Form.Control
@@ -150,7 +150,10 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+        </Row>
+        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
+        <Row>
+          <Col sm={3}>
             <Form.Group controlId="formBirthsign">
               <Form.Label>Birthsign</Form.Label>
               <Form.Control
@@ -164,9 +167,7 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-        </Row>
-        <Row>
-          <Col sm={4}>
+          <Col sm={3}>
             <Form.Group controlId="formDisposition">
               <Form.Label>Disposition</Form.Label>
               <Form.Control
@@ -180,7 +181,7 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+          <Col sm={3}>
             <Form.Group controlId="formCoat">
               <Form.Label>Coat</Form.Label>
               <Form.Control
@@ -194,7 +195,7 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+          <Col sm={3}>
             <Form.Group controlId="formPhysicalDetail">
               <Form.Label>Physical Detail</Form.Label>
               <Form.Control
@@ -209,8 +210,9 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
+        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
         <Row>
-          <Col sm={4}>
+          <Col sm={4} className="mt-3">
             <Form.Group controlId="formStrengthMax">
               <Form.Label>STR Max</Form.Label>
               <Form.Control
@@ -224,7 +226,7 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+          <Col sm={4} className="mt-3">
             <Form.Group controlId="formDexterityMax">
               <Form.Label>DEX Max</Form.Label>
               <Form.Control
@@ -238,7 +240,7 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+          <Col sm={4} className="mt-3">
             <Form.Group controlId="formWillpowerMax">
               <Form.Label>WIL Max</Form.Label>
               <Form.Control
@@ -298,9 +300,10 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
+        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
 
         <Row>
-          <Col sm={4}>
+          <Col sm={4} className="mt-3">
             <Form.Group controlId="formHPMax">
               <Form.Label>HP Max</Form.Label>
               <Form.Control
@@ -314,7 +317,7 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+          <Col sm={4} className="mt-3">
             <Form.Group controlId="formHPCurrent">
               <Form.Label>HP Current</Form.Label>
               <Form.Control
@@ -328,7 +331,7 @@ const CharacterForm: React.FC = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4}>
+          <Col sm={4} className="mt-3">
             <Form.Group controlId="formPips">
               <Form.Label>Pips</Form.Label>
               <Form.Control
@@ -343,9 +346,10 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
+        <div className="hr-with-char"><span>&nbsp;MS&nbsp;</span></div>
 
         <Row>
-          <Col className="sm-12">
+          <Col sm={12} className="mt-3">
             <Form.Group controlId="formItems">
               <Form.Label>Items</Form.Label>
               <Form.Control
@@ -365,7 +369,7 @@ const CharacterForm: React.FC = () => {
           variant="primary"
           type="submit"
           disabled={saving}
-          className="mt-3 mr-3"
+          className="mt-3"
         >
           {id ? "Save Changes" : "Add Character"}
         </Button>
