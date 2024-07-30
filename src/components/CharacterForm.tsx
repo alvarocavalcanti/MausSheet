@@ -112,7 +112,7 @@ const CharacterForm: React.FC = () => {
   };
 
   return (
-    <Container fluid className="m-3">
+    <Container fluid>
       <h2 className="mt-4">{id ? "Edit" : "Add New"} Character</h2>
       {showAlert && (
         <Alert variant="success">
@@ -121,11 +121,11 @@ const CharacterForm: React.FC = () => {
         </Alert>
       )}
       <Form noValidate validated={validated} onSubmit={handleSaveCharacter}>
-        <Form.Group as={Row} controlId="formNameAndBackground">
+        <Form.Group as={Row} controlId="formName" className="mb-3">
           <Form.Label
             column
             className="rounded-start"
-            style={{ backgroundColor: "#ccc" }}
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
           >
             Name
           </Form.Label>
@@ -142,10 +142,12 @@ const CharacterForm: React.FC = () => {
               Please provide a name.
             </Form.Control.Feedback>
           </Col>
+        </Form.Group>
+        <Form.Group as={Row} controlId="formNameAndBackground">
           <Form.Label
             column
             className="rounded-start"
-            style={{ backgroundColor: "#ccc" }}
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
           >
             Background
           </Form.Label>
