@@ -168,64 +168,94 @@ const CharacterForm: React.FC = () => {
         <div className="hr-with-char">
           <span>&nbsp;MS&nbsp;</span>
         </div>
-        <Row>
-          <Col sm={3}>
-            <Form.Group controlId="formBirthsign">
-              <Form.Label>Birthsign</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                value={birthsign}
-                onChange={(e) => setBirthsign(e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a birthsign.
-              </Form.Control.Feedback>
-            </Form.Group>
+        <Form.Group as={Row} controlId="formBirthsign" className="mb-3">
+          <Form.Label
+            column
+            className="rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            Birthsign
+          </Form.Label>
+          <Col xs={8} style={{ paddingLeft: "0px" }}>
+            <Form.Control
+              required
+              type="text"
+              value={birthsign}
+              onChange={(e) => setBirthsign(e.target.value)}
+              style={{ paddingLeft: "5px" }}
+              className="rounded-end rounded-start-0"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a birthsign.
+            </Form.Control.Feedback>
           </Col>
-          <Col sm={3}>
-            <Form.Group controlId="formDisposition">
-              <Form.Label>Disposition</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                value={disposition}
-                onChange={(e) => setDisposition(e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a disposition.
-              </Form.Control.Feedback>
-            </Form.Group>
+        </Form.Group>
+        <Form.Group as={Row} controlId="formDisposition" className="mb-3">
+          <Form.Label
+            column
+            className="rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            Disposition
+          </Form.Label>
+          <Col xs={8} style={{ paddingLeft: "0px" }}>
+            <Form.Control
+              required
+              type="text"
+              value={disposition}
+              onChange={(e) => setDisposition(e.target.value)}
+              style={{ paddingLeft: "5px" }}
+              className="rounded-end rounded-start-0"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a disposition.
+            </Form.Control.Feedback>
           </Col>
-          <Col sm={3}>
-            <Form.Group controlId="formCoat">
-              <Form.Label>Coat</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                value={coat}
-                onChange={(e) => setCoat(e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a coat.
-              </Form.Control.Feedback>
-            </Form.Group>
+        </Form.Group>
+        <Form.Group as={Row} controlId="formCoat" className="mb-3">
+          <Form.Label
+            column
+            className="rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            Coat
+          </Form.Label>
+          <Col xs={8} style={{ paddingLeft: "0px" }}>
+            <Form.Control
+              required
+              type="text"
+              value={coat}
+              onChange={(e) => setCoat(e.target.value)}
+              style={{ paddingLeft: "5px" }}
+              className="rounded-end rounded-start-0"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a coat.
+            </Form.Control.Feedback>
           </Col>
-          <Col sm={3}>
-            <Form.Group controlId="formPhysicalDetail">
-              <Form.Label>Physical Detail</Form.Label>
-              <Form.Control
-                required
-                type="text"
-                value={physicalDetail}
-                onChange={(e) => setPhysicalDetail(e.target.value)}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a physical detail.
-              </Form.Control.Feedback>
-            </Form.Group>
+        </Form.Group>
+        <Form.Group as={Row} controlId="formPhysicalDetail">
+          <Form.Label
+            column
+            className="rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            Phys Detail
+          </Form.Label>
+          <Col xs={8} style={{ paddingLeft: "0px" }}>
+            <Form.Control
+              required
+              type="text"
+              value={physicalDetail}
+              onChange={(e) => setPhysicalDetail(e.target.value)}
+              style={{ paddingLeft: "5px" }}
+              className="rounded-end rounded-start-0"
+            />
+            <Form.Control.Feedback type="invalid">
+              Please provide a physical detail.
+            </Form.Control.Feedback>
           </Col>
-        </Row>
+        </Form.Group>
         <div className="hr-with-char">
           <span>&nbsp;MS&nbsp;</span>
         </div>
@@ -235,8 +265,12 @@ const CharacterForm: React.FC = () => {
           <Col className="text-center">Current</Col>
         </Row>
         <Row className="align-items-center">
-          <Col className="text-end rounded-start"
-          style={{ backgroundColor: "#ccc", marginLeft: "10px" }}>STR</Col>
+          <Col
+            className="text-end rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            STR
+          </Col>
           <Col>
             <Form.Group controlId="formStrengthMax">
               <Form.Control
@@ -267,8 +301,11 @@ const CharacterForm: React.FC = () => {
           </Col>
         </Row>
         <Row className="align-items-center">
-          <Col className="text-end rounded-start"
-          style={{ backgroundColor: "#ccc", marginLeft: "10px" }}>DEX
+          <Col
+            className="text-end rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            DEX
           </Col>
           <Col>
             <Form.Group controlId="formDexterityMax">
@@ -300,8 +337,11 @@ const CharacterForm: React.FC = () => {
           </Col>
         </Row>
         <Row className="align-items-center">
-          <Col className="text-end rounded-start"
-          style={{ backgroundColor: "#ccc", marginLeft: "10px" }}>WIL
+          <Col
+            className="text-end rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            WIL
           </Col>
           <Col>
             <Form.Group controlId="formWillpowerMax">
