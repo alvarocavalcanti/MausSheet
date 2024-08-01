@@ -80,9 +80,9 @@ const CharacterForm: React.FC = () => {
         willpower: { max: strengthMax, current: strengthMax },
       },
       items,
-      disposition: "",
-      coat: "",
-      physicalDetail: "",
+      disposition: disposition,
+      coat: coat,
+      physicalDetail: physicalDetail,
       hp: {
         max: 0,
         current: 0,
