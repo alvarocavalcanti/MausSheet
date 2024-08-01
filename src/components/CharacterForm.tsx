@@ -376,45 +376,42 @@ const CharacterForm: React.FC = () => {
           <span>&nbsp;MS&nbsp;</span>
         </div>
         <Row>
-          <Col sm={4} className="mt-3">
+          <Col></Col>
+          <Col className="text-center">Max</Col>
+          <Col className="text-center">Current</Col>
+        </Row>
+        <Row className="align-items-center">
+          <Col
+            className="text-end rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            HP
+          </Col>
+          <Col>
             <Form.Group controlId="formHPMax">
-              <Form.Label>HP Max</Form.Label>
               <Form.Control
                 required
                 type="number"
                 value={hpMax}
                 onChange={(e) => setHpMax(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a HP Max value.
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col sm={4} className="mt-3">
+          <Col>
             <Form.Group controlId="formHPCurrent">
-              <Form.Label>HP Current</Form.Label>
               <Form.Control
                 required
                 type="number"
                 value={hpCurrent}
                 onChange={(e) => setHpCurrent(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a HP Current value.
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Col>
-          <Col sm={4} className="mt-3">
-            <Form.Group controlId="formPips">
-              <Form.Label>Pips</Form.Label>
-              <Form.Control
-                required
-                type="number"
-                value={pips}
-                onChange={(e) => setPips(parseInt(e.target.value))}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please provide a pips value.
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
@@ -422,7 +419,32 @@ const CharacterForm: React.FC = () => {
         <div className="hr-with-char">
           <span>&nbsp;MS&nbsp;</span>
         </div>
-
+        <Row className="align-items-center">
+          <Col
+            className="text-end rounded-start"
+            style={{ backgroundColor: "#ccc", marginLeft: "10px" }}
+          >
+            Pips
+          </Col>
+          <Col>
+            <Form.Group controlId="formPips">
+              <Form.Control
+                required
+                type="number"
+                value={pips}
+                onChange={(e) => setPips(parseInt(e.target.value))}
+                className="border-0"
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a pips value.
+              </Form.Control.Feedback>
+            </Form.Group>
+          </Col>
+          <Col></Col>
+        </Row>
+        <div className="hr-with-char">
+          <span>&nbsp;MS&nbsp;</span>
+        </div>
         <Row>
           <Col sm={12} className="mt-3">
             <Form.Group controlId="formItems">
