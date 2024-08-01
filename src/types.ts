@@ -26,4 +26,16 @@ export interface CharacterSheet {
   };
   items: string[];
   pips: number;
+  inventory?: InventoryItem[];
+}
+
+export interface InventoryItem {
+  name: string;
+  type: string;
+  weight: number;
+  usesMax: number;
+  usesCurrent: number;
+  size: number;
+  damageDice: string;
+  clearCondition: string;
 }
