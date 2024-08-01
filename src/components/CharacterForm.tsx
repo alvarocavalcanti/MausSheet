@@ -84,10 +84,10 @@ const CharacterForm: React.FC = () => {
       coat: coat,
       physicalDetail: physicalDetail,
       hp: {
-        max: 0,
-        current: 0,
+        max: hpMax,
+        current: hpCurrent,
       },
-      pips: 0,
+      pips: pips,
     };
 
     const storedCharacters = localStorage.getItem("characters");
