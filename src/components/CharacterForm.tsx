@@ -129,7 +129,7 @@ const CharacterForm: React.FC = () => {
           >
             Name
           </Form.Label>
-          <Col style={{ paddingLeft: "0px" }}>
+          <Col xs={8} style={{ paddingLeft: "0px" }}>
             <Form.Control
               required
               type="text"
@@ -151,7 +151,7 @@ const CharacterForm: React.FC = () => {
           >
             Background
           </Form.Label>
-          <Col style={{ paddingLeft: "0px" }}>
+          <Col xs={8} style={{ paddingLeft: "0px" }}>
             <Form.Control
               required
               type="text"
@@ -234,8 +234,9 @@ const CharacterForm: React.FC = () => {
           <Col className="text-center">Max</Col>
           <Col className="text-center">Current</Col>
         </Row>
-        <Row>
-          <Col className="text-end">STR</Col>
+        <Row className="align-items-center">
+          <Col className="text-end rounded-start"
+          style={{ backgroundColor: "#ccc", marginLeft: "10px" }}>STR</Col>
           <Col>
             <Form.Group controlId="formStrengthMax">
               <Form.Control
@@ -243,6 +244,7 @@ const CharacterForm: React.FC = () => {
                 type="number"
                 value={strengthMax}
                 onChange={(e) => setStrengthMax(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a strength value.
@@ -256,6 +258,7 @@ const CharacterForm: React.FC = () => {
                 type="number"
                 value={strengthCurrent}
                 onChange={(e) => setStrengthCurrent(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a strength value.
@@ -263,30 +266,32 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
-        <Row>
-          <Col className="mt-3 text-end">
-            DEX
+        <Row className="align-items-center">
+          <Col className="text-end rounded-start"
+          style={{ backgroundColor: "#ccc", marginLeft: "10px" }}>DEX
           </Col>
-          <Col className="mt-3">
+          <Col>
             <Form.Group controlId="formDexterityMax">
               <Form.Control
                 required
                 type="number"
                 value={dexterityMax}
                 onChange={(e) => setDexterityMax(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a dexterity value.
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className="mt-3">
+          <Col>
             <Form.Group controlId="formDexterityCurrent">
               <Form.Control
                 required
                 type="number"
                 value={dexterityCurrent}
                 onChange={(e) => setDexterityCurrent(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a dexterity value.
@@ -294,30 +299,32 @@ const CharacterForm: React.FC = () => {
             </Form.Group>
           </Col>
         </Row>
-        <Row>
-          <Col className="mt-3 text-end">
-            WIL
+        <Row className="align-items-center">
+          <Col className="text-end rounded-start"
+          style={{ backgroundColor: "#ccc", marginLeft: "10px" }}>WIL
           </Col>
-          <Col className="mt-3">
+          <Col>
             <Form.Group controlId="formWillpowerMax">
               <Form.Control
                 required
                 type="number"
                 value={willpowerMax}
                 onChange={(e) => setWillpowerMax(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a willpower value.
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
-          <Col className="mt-3">
+          <Col>
             <Form.Group controlId="formWillpowerCurrent">
               <Form.Control
                 required
                 type="number"
                 value={willpowerCurrent}
                 onChange={(e) => setWillpowerCurrent(parseInt(e.target.value))}
+                className="border-0"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a willpower value.

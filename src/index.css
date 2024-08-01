@@ -53,6 +53,15 @@ button {
   margin-top: 1rem;
 }
 
+input[type="number"] {
+  font-family: "Arial", sans-serif;
+  font-size: medium;
+}
+
+input[type="text"] {
+  font-family: "Arial", sans-serif;
+}
+
 /* List group custom styles */
 .list-group-item {
   display: flex;
