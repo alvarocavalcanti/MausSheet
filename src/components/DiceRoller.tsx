@@ -28,9 +28,14 @@ const DiceRoller: React.FC = () => {
 
   return (
     <div className="dice-roller-container">
-      <Row>
-        <Col>{result && <h2>{result}</h2>}</Col>
-      </Row>
+      {result && (
+        <Row>
+          <Col
+            className="text-center">
+            <Button style={{width: "100%", backgroundColor: "#fff", fontFamily: "fantasy"}} variant="outline-secondary">{result}</Button>
+          </Col>
+        </Row>
+      )}
       {expanded && (
         <div>
           {diceTypes.map((dice) => (
@@ -41,6 +46,7 @@ const DiceRoller: React.FC = () => {
                   onClick={() => handleRoll(dice.sides)}
                   className="mt-1 secondary"
                   variant="secondary"
+                  style={{ width: "100%" }}
                 >
                   {dice.name}
                 </Button>
