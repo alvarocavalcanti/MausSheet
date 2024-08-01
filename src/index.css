@@ -55,7 +55,6 @@ button {
 
 result {
   font-size: 20px;
-  font-family: "Arial", sans-serif;
   background-color: #fff;
   width: "100%";
   border-color: '#ccc';
@@ -63,12 +62,12 @@ result {
 }
 
 input[type="number"] {
-  font-family: "Arial", sans-serif;
+  font-family: fantasy;
   font-size: medium;
 }
 
 input[type="text"] {
-  font-family: "Arial", sans-serif;
+  font-family: fantasy;
 }
 
 /* List group custom styles */
