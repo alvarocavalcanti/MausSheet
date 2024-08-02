@@ -30,12 +30,13 @@ export interface CharacterSheet {
 }
 
 export interface InventoryItem {
+  id: string;
   name: string;
   type: string;
   weight: number;
   usesMax: number;
   usesCurrent: number;
   size: number;
-  damageDice: string;
+  damageDie: string;
   clearCondition: string;
 }

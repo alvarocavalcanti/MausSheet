@@ -17,6 +17,12 @@ const AppNavbar: React.FC = () => {
           <LinkContainer to="/new" style={{ marginLeft: "10pt" }}>
             <Nav.Link>New Mouse</Nav.Link>
           </LinkContainer>
+          <LinkContainer to="/items" style={{ marginLeft: "10pt" }}>
+            <Nav.Link>Inventory Items</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/new-item" style={{ marginLeft: "10pt" }}>
+            <Nav.Link>New Inventory Item</Nav.Link>
+          </LinkContainer>
           <LinkContainer to="/help" style={{ marginLeft: "10pt" }}>
             <Nav.Link>Help</Nav.Link>
           </LinkContainer>
