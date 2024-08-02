@@ -10,7 +10,6 @@ const InventoryItemForm: React.FC = () => {
 
   const [name, setName] = useState<string>("");
   const [type, setType] = useState<string>("");
-  const [weight, setWeight] = useState<number>(0);
   const [usesMax, setUsesMax] = useState<number>(3);
   const [usesCurrent, setUsesCurrent] = useState<number>(0);
   const [size, setSize] = useState<number>(0);
@@ -30,7 +29,6 @@ const InventoryItemForm: React.FC = () => {
         if (itemToEdit) {
           setName(itemToEdit.name);
           setType(itemToEdit.type);
-          setWeight(itemToEdit.weight);
           setUsesMax(itemToEdit.usesMax);
           setUsesCurrent(itemToEdit.usesCurrent);
           setSize(itemToEdit.size);
@@ -56,7 +54,6 @@ const InventoryItemForm: React.FC = () => {
       id: id || uuidv4(),
       name,
       type: type,
-      weight: weight,
       usesMax: usesMax,
       usesCurrent: usesCurrent,
       size: size,
@@ -118,20 +115,6 @@ const InventoryItemForm: React.FC = () => {
           />
           <Form.Control.Feedback type="invalid">
             Please provide a type.
-          </Form.Control.Feedback>
-        </Form.Group>
-
-        <Form.Group controlId="formWeight">
-          <Form.Label>Weight</Form.Label>
-          <Form.Control
-            required
-            type="number"
-            placeholder="Enter weight"
-            value={weight}
-            onChange={(e) => setWeight(Number(e.target.value))}
-          />
-          <Form.Control.Feedback type="invalid">
-            Please provide a weight.
           </Form.Control.Feedback>
         </Form.Group>
 

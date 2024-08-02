@@ -33,7 +33,6 @@ export interface InventoryItem {
   id: string;
   name: string;
   type: string;
-  weight: number;
   usesMax: number;
   usesCurrent: number;
   size: number;
